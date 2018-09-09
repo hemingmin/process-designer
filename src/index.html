@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>易臣OA系统流程设计器</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/index.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/jsPlumb/dist/js/dom.jsPlumb-1.7.5.js"></script>
+    <script src="scripts/globalStyle.js"></script>
+    <script src="scripts/drag.js"></script>
 </head>
 <body>
-    <h1>dfdf</h1>
+    <div class="container-fluid ">
+        <div class="row head primary">
+            <h4>易臣OA系统流程设计器</h4>
+        </div>
+        <div class="row main">
+            <div id="left">
+                <div class="pos_box">
+                    <div id="ddd" class="start center-block btn btn-primary btn-md" dbtype="DTO_START">开始</div>
+                    <div class="btn btn-info center-block" dbtype="DTO_PROCESS">流程1</div>
+                    <div class="btn btn-info  center-block" dbtype="DTO_PROCESS">流程2</div>
+                    <div class="btn btn-danger center-block" dbtype="DTO_STOP">结束</div>
+                </div>
+            </div>
+            <div id="center">center</div>
+            <div id="right">right</div>
+        </div>
+    </div>
 </body>
 </html>
