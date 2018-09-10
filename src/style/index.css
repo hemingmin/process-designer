@@ -1,14 +1,15 @@
 body {
   margin: 0;
   padding: 0;
+  background: #f3f3f3;
 }
 .head {
   height: 60px;
   padding: 10px 20px;
-  background: #101010;
+  background: #1ab394;
 }
 .head h4 {
-  color: #9d9d9d;
+  color: #fff;
 }
 .main {
   position: absolute;
@@ -20,16 +21,16 @@ body {
   margin: 0;
 }
 #left {
-  background: #84acb3;
+  background: #2f4050;
   height: 100%;
-  width: 220px;
+  width: 180px;
   position: absolute;
   left: 0;
   top: 0;
 }
 #left .pos_box {
   position: relative;
-  left: 60px;
+  left: 10px;
   top: 0;
 }
 #left .pos_box div {
@@ -42,23 +43,47 @@ body {
 }
 #center {
   height: 100%;
-  margin-left: 220px;
+  margin-left: 180px;
   top: 0;
-  border: 1px solid #ccc;
-  margin-right: 220px;
+  border-right: 1px solid #ccc;
+  margin-right: 320px;
   position: relative;
   overflow: hidden;
 }
 #center .process {
   position: absolute;
   width: 100px;
-  height: 100px;
+  height: 60px;
   background: #ccc;
+}
+#center .start {
+  background: #337ab7;
+  color: #fff;
 }
 #right {
   height: 100%;
   position: absolute;
   right: 0px;
   top: 0;
-  width: 220px;
+  width: 320px;
+}
+.line_text {
+  color: red;
+}
+#centextMenu {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  position: absolute;
+  z-index: 99999;
+  background: #fff;
+}
+#centextMenu a {
+  padding: 4px 10px;
+  text-decoration: none;
+  display: block;
+  height: 30px;
+  font-size: 14px;
+  color: #545454;
+}
+#centextMenu a:hover {
+  background: #e8e8e8;
 }
