@@ -1,45 +1,153 @@
 body { 
     margin: 0; padding: 0; background: #f3f3f3;
 }
+ul,li { list-style: none;}
 
 .head {
     height: 60px; padding: 10px 20px; background: #1ab394;
     h4 { color: #fff;}
 }
 
+// 菜单栏
+.menuCoulmn {
+    height: 40px; background: #eaeaea;
+    position: relative;
+    .leftB {
+        width: 180px; background: #293846; height: 100%;
+        position: absolute; left: 0; top:0; text-indent: 32px; line-height: 40px;
+        font-size: 16px; color: #a7b1c2;
+    }
+    .rightB {
+        position: absolute; height: 40px; left: 180px; right: 0;
+        line-height: 40px; overflow: hidden;
+        a{
+            padding: 0 14px; float: left; text-decoration: none;
+            overflow: hidden;
+            img { 
+                float: left; margin-top: 10px; margin-left: 2px; margin-right: 4px;
+            }
+        }
+        .setConnector{
+            float: left; margin: 0 5px;
+            span{
+
+            }
+            select{
+                vertical-align: middle; height: 24px; line-height: 24px; margin-left: 4px;
+            }
+        }
+    }
+}
+
 .main {
-    position: absolute; top: 60px; bottom: 0; left: 0; right: 0; width: 100%;
+    position: absolute; top: 100px; bottom: 0; left: 0; right: 0; width: 100%;
      margin: 0;
 }
+
+// 左侧节点
 #left {
     background: #2f4050; height:100%; width: 180px; position: absolute; left: 0; top: 0;
-    .pos_box{
-        position: relative; left: 10px; top: 0;
-        div {
-            width: 100px; height: 60px; line-height: 48px; margin: 0; margin-top: 20px;
-             box-sizing: border-box;
+    .domList{
+        color: #a7b1c2; padding-left: 0px;
+        li{
+            height: 44px; line-height: 44px; width: 180px;
+            padding-left: 30px;
+            img{ float: left; margin-top: 12px; margin-right: 4px;}
+            span{}
         }
+        li:hover{ background: #293846; cursor: pointer;}
     }
     .start {}
 }
+
+// 中间模型
 #center {
     height:100%;  margin-left: 180px; top: 0; border-right: 1px solid #ccc; margin-right: 320px;
-    position: relative; overflow: hidden;
-    .process{ 
-        position: absolute;
-        width: 100px; height: 60px; background: #ccc;
+    position: relative; overflow: hidden; overflow-y: auto;
+    .model_process{ 
+        position: absolute; border: 1px solid #e5e5e5; border-top: none; 
+        width: 128px; background: #fff; overflow: hidden;
+        .title{
+            background: #d9edf7; height: 30px; line-height: 30px;
+            border: 1px solid #b3d1df;  padding: 1px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            img{ float: left; margin-top: 2px;}
+            span{ color: #254959;}
+
+        }
+        p{
+            padding: 0px 4px;background: #fff;
+            margin-bottom: 0; min-height: 40px; text-align: center; line-height: 40px;
+        }
     }
+    .seled{
+        .title{ background: #baebe1;}
+    }
+    // 开始节点、决策节点、结束任务、结束流程、自由节点、多分支节点、聚合节点
     .start {
-        background: #337ab7; color: #fff;
+        width: 50px; height: 50px;position: absolute;
+        background: url(../images/center/c_start.png) no-repeat;
+    }
+    .jslc{
+        width: 50px; height: 50px;position: absolute;
+        background: url(../images/center/c_jslc.png) no-repeat; 
+    }
+    .jsrw{
+        width: 50px; height: 50px;position: absolute;
+        background: url(../images/center/c_jsrw.png) no-repeat; 
+    }
+    .zyjd{
+        width: 50px; height: 50px;position: absolute;
+        background: url(../images/center/c_zyjd.png) no-repeat; 
+    }
+    .dfzjd{
+        width: 42px; height: 42px;position: absolute;
+        background: url(../images/center/c_dfzjd.png) no-repeat; 
+    }
+    .jhjd{
+        width: 42px; height: 42px;position: absolute;
+        background: url(../images/center/c_jhjd.png) no-repeat; 
+    }
+    .jcjd{
+        width: 80px; height: 46px; line-height: 46px; text-align: center;position: absolute;
+        background: url(../images/center/c_jcjd.png) no-repeat; 
+    }
+    .li{
+        height: 44px; line-height: 44px;
+        padding-left: 30px;
+        img{ }
+        span{}
     }
 }
+
+// 右侧面板
 #right{
-    height:100%; position: absolute; right: 0px; top: 0; width: 320px;
+    height:100%; position: absolute; right: 0px; top: 0; width: 320px; background: #fff;
+    padding: 10px; box-sizing: border-box;
+    .attribute_list{
+        table{
+            tr{
+                td{
+                    border: 1px solid #ccc; padding: 5px;
+                    input {
+                        text-indent: 4px; border: 1px solid #e1e1e1; width: 240px; height: 30px;
+                    }
+                }
+            }
+        }
+    }
+    a{
+        position: absolute; top: 45%; width: 20px; height: 40px; line-height: 40px; text-align: center; 
+        border: 1px solid #ccc; left: -20px; text-decoration: none; transition: 0.5s;
+    }
+    a:hover { background: #e5e5e5;}
 }
 
 
 // 连接线文字样式
-.line_text{ color: red;}
+.line_text{ color: red; position: absolute; left: 0; top: 0;}
 
 // 右键菜单
 #centextMenu{
@@ -51,3 +159,8 @@ body {
     }
     a:hover {background: #e8e8e8}
 }
+
+
+// 模型类型
+
+// 菱形

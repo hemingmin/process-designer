@@ -3,6 +3,10 @@ body {
   padding: 0;
   background: #f3f3f3;
 }
+ul,
+li {
+  list-style: none;
+}
 .head {
   height: 60px;
   padding: 10px 20px;
@@ -11,9 +15,56 @@ body {
 .head h4 {
   color: #fff;
 }
+.menuCoulmn {
+  height: 40px;
+  background: #eaeaea;
+  position: relative;
+}
+.menuCoulmn .leftB {
+  width: 180px;
+  background: #293846;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-indent: 32px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #a7b1c2;
+}
+.menuCoulmn .rightB {
+  position: absolute;
+  height: 40px;
+  left: 180px;
+  right: 0;
+  line-height: 40px;
+  overflow: hidden;
+}
+.menuCoulmn .rightB a {
+  padding: 0 14px;
+  float: left;
+  text-decoration: none;
+  overflow: hidden;
+}
+.menuCoulmn .rightB a img {
+  float: left;
+  margin-top: 10px;
+  margin-left: 2px;
+  margin-right: 4px;
+}
+.menuCoulmn .rightB .setConnector {
+  float: left;
+  margin: 0 5px;
+}
+.menuCoulmn .rightB .setConnector select {
+  vertical-align: middle;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 4px;
+}
 .main {
   position: absolute;
-  top: 60px;
+  top: 100px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -28,18 +79,24 @@ body {
   left: 0;
   top: 0;
 }
-#left .pos_box {
-  position: relative;
-  left: 10px;
-  top: 0;
+#left .domList {
+  color: #a7b1c2;
+  padding-left: 0px;
 }
-#left .pos_box div {
-  width: 100px;
-  height: 60px;
-  line-height: 48px;
-  margin: 0;
-  margin-top: 20px;
-  box-sizing: border-box;
+#left .domList li {
+  height: 44px;
+  line-height: 44px;
+  width: 180px;
+  padding-left: 30px;
+}
+#left .domList li img {
+  float: left;
+  margin-top: 12px;
+  margin-right: 4px;
+}
+#left .domList li:hover {
+  background: #293846;
+  cursor: pointer;
 }
 #center {
   height: 100%;
@@ -49,16 +106,92 @@ body {
   margin-right: 320px;
   position: relative;
   overflow: hidden;
+  overflow-y: auto;
 }
-#center .process {
+#center .model_process {
   position: absolute;
-  width: 100px;
-  height: 60px;
-  background: #ccc;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  width: 128px;
+  background: #fff;
+  overflow: hidden;
+}
+#center .model_process .title {
+  background: #d9edf7;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #b3d1df;
+  padding: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#center .model_process .title img {
+  float: left;
+  margin-top: 2px;
+}
+#center .model_process .title span {
+  color: #254959;
+}
+#center .model_process p {
+  padding: 0px 4px;
+  background: #fff;
+  margin-bottom: 0;
+  min-height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+#center .seled .title {
+  background: #baebe1;
 }
 #center .start {
-  background: #337ab7;
-  color: #fff;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: url(../images/center/c_start.png) no-repeat;
+}
+#center .jslc {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: url(../images/center/c_jslc.png) no-repeat;
+}
+#center .jsrw {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: url(../images/center/c_jsrw.png) no-repeat;
+}
+#center .zyjd {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: url(../images/center/c_zyjd.png) no-repeat;
+}
+#center .dfzjd {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  background: url(../images/center/c_dfzjd.png) no-repeat;
+}
+#center .jhjd {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  background: url(../images/center/c_jhjd.png) no-repeat;
+}
+#center .jcjd {
+  width: 80px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  position: absolute;
+  background: url(../images/center/c_jcjd.png) no-repeat;
+}
+#center .li {
+  height: 44px;
+  line-height: 44px;
+  padding-left: 30px;
 }
 #right {
   height: 100%;
@@ -66,9 +199,40 @@ body {
   right: 0px;
   top: 0;
   width: 320px;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#right .attribute_list table tr td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+#right .attribute_list table tr td input {
+  text-indent: 4px;
+  border: 1px solid #e1e1e1;
+  width: 240px;
+  height: 30px;
+}
+#right a {
+  position: absolute;
+  top: 45%;
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  left: -20px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+#right a:hover {
+  background: #e5e5e5;
 }
 .line_text {
   color: red;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 #centextMenu {
   border: 1px solid rgba(0, 0, 0, 0.15);

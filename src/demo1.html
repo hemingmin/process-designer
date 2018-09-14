@@ -30,16 +30,15 @@
             </div>
             <div id="center">
 				<div id="PROCESS_DOM_1" class="process"></div>
-				<div class="dd">ddddddd</div>
 			</div>
             <div id="right">right</div>
         </div>
 	</div>
 	<script>
 		$(function(){
-			$('.dd').draggable()
-			$('#PROCESS_DOM_1').draggable()
-			$('#PROCESS_DOM_1').resizable()
+            $('.dd').draggable();
+            var a = $('<div/>').addClass('draggable');
+            $('body').append(a)
 		})
 	</script>
 </body>

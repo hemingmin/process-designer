@@ -36,11 +36,28 @@ var hollowCircle = {
     isTarget: true,    //是否可以放置（连线终点）
     maxConnections: -1,    // 设置连接点最多可以连接几条线
     connectorOverlays: [
-        ["Arrow", { width: 10, length: 10, location: 1 }]
-       // ["Label",{label:setLineText,cssClass:'line_text'}]//通过方法设置连接线文字
+        ["Arrow", { width: 10, length: 10, location: 1 }],
+        ["Label",{label:setLineText,cssClass:'line_text',
+        events:{
+            mousedown:function(labelOverlay,originalEvent){
+                alert('ddd')
+                jsPlumb.draggable($('.line_text'));
+        },mouseout:function(){
+            return false;
+        }
+
+    }}],//通过方法设置连接线文字
+        // ["Custom",{create:createText}]
     ]
 }
 
 function setLineText(){
-    return 'ddd'
+    return '送人事审核'
 }
+
+function createText(){
+    return $("<select id='myDropDown'><option value='foo'>foo</option><option value='bar'>bar</option></select>")
+}
+
+
+

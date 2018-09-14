@@ -11,7 +11,10 @@
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="../bower_components/jsPlumb/dist/js/dom.jsPlumb-1.7.5.js"></script>
+    <script src="scripts/menuCoulmn.js"></script>
+    <script src="scripts/model_data.js"></script>
     <script src="scripts/globalStyle.js"></script>
+    <script src="scripts/index.js"></script>
     <script src="scripts/panel.js"></script>
     <script src="scripts/drag.js"></script>
 </head>
@@ -20,17 +23,154 @@
         <div class="row head primary">
             <h4>易臣OA系统流程设计器</h4>
         </div>
+        <div class="row menuCoulmn">
+            <div class="leftB">节点类型</div>
+            <div class="rightB">
+                <div class="setConnector">
+                    <span>连线类型</span>
+                    <select name="" id="conn_type">
+                        <option value="1">折线</option>
+                        <option value="2">直线</option>
+                        <option value="3">曲线</option>
+                    </select>
+                </div>
+                <a href="#">
+                    <!-- <img src="images/menu/close.png" width="20" alt=""> -->
+                    <span>关闭</span>
+                </a>
+                <a href="#">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>保存</span>
+                </a>
+                <a href="#">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>导出流程</span>
+                </a>
+                <a href="#">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>导入流程</span>
+                </a>
+                <a href="#">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>拷贝流程</span>
+                </a>
+                <a href="#">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>隐藏属性面板</span>
+                </a>
+                <a href="#" id="topAlign">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>顶端对齐</span>
+                </a>
+                <a href="#" id="leftAlign">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>左对齐</span>
+                </a>
+                <a href="#" id="verticalAlign">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>垂直分布</span>
+                </a>
+                <a href="#" id="levelAlign">
+                    <!-- <img src="images/menu/save.png" width="20" alt=""> -->
+                    <span>水平分布</span>
+                </a>
+            </div>
+        </div>
         <div class="row main">
             <div id="left">
-                <div class="pos_box">
-                    <div class="start center-block btn btn-primary btn-md" dbtype="DTO_START">开始</div>
-                    <div class="btn btn-info center-block" dbtype="DTO_PROCESS">流程1</div>
-                    <div class="btn btn-info  center-block" dbtype="DTO_PROCESS">流程2</div>
-                    <div class="btn btn-danger center-block" dbtype="DTO_STOP">结束</div>
-                </div>
+                <ul class="domList">
+                    <li class="start">
+                        <img src="images/left/l_start.png" width="20" alt="">
+                        <span>开始</span>
+                    </li>
+                    <li class="ptjd">
+                        <img src="images/left/l_ptjd.png" width="20" alt="">
+                        <span>普通节点</span>
+                    </li>
+                    <li class="jzjd">
+                        <img src="images/left/l_jzjd.png" width="20" alt="">
+                        <span>竞争节点</span>
+                    </li>
+                    <li class="drbx">
+                        <img src="images/left/l_drbx.png" width="20" alt="">
+                        <span>多人并行</span>
+                    </li>
+                    <li class="drcx">
+                        <img src="images/left/l_drcx.png" width="20" alt="">
+                        <span>多人串行</span>
+                    </li>
+                    <li class="hqjd">
+                        <img src="images/left/l_hqjd.png" width="20" alt="">
+                        <span>会签节点</span>
+                    </li>
+                    <li class="ywjd">
+                        <img src="images/left/l_ywjd.png" width="20" alt="">
+                        <span>阅文节点</span>
+                    </li>
+                    <li class="jsrw">
+                        <img src="images/left/l_jsrw.png" width="20" alt="">
+                        <span>结束任务</span>
+                    </li>
+                    <li class="jslc">
+                        <img src="images/left/l_jslc.png" width="20" alt="">
+                        <span>结束流程</span>
+                    </li>
+                    <li class="jcjd">
+                        <img src="images/left/l_jcjd.png" width="20" alt="">
+                        <span>决策节点</span>
+                    </li>
+                    <li class="zyjd">
+                        <img src="images/left/l_zyjd.png" width="20" alt="">
+                        <span>自由节点</span>
+                    </li>
+                    <li class="dfzjd">
+                        <img src="images/left/l_dfzjd.png" width="20" alt="">
+                        <span>多分支节点</span>
+                    </li>
+                    <li class="jhjd">
+                        <img src="images/left/l_jhjd.png" width="20" alt="">
+                        <span>聚合节点</span>
+                    </li>
+                </ul>
             </div>
-            <div id="center"></div>
-            <div id="right">right</div>
+            <div id="center">
+                <!-- 普通模型模板 -->
+                <!-- <div class="process">
+                    <div class="title">
+                        <img src="images/center/c_drbx.png" width="22" alt="">
+                        <span>多分支节点</span>
+                    </div>
+                    <p>部门领导审批</p>
+                </div> -->
+
+                <!-- 定制模型模板 -->
+                <!-- <div class="start"></div>
+                <div class="jslc"></div>
+                <div class="jsrw"></div>
+                <div class="zyjd"></div>
+                <div class="dfzjd"></div>
+                <div class="jhjd"></div>
+                <div class="jcjd"></div> -->
+            </div>
+            <div id="right">
+                <div class="attribute_list">
+                    <table width="100%">
+                        <tr>
+                            <td align="center">名称</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">宽度</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">高度</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table>
+                </div> 
+                <a href="#">&gt;</a>
+            </div>
         </div>
     </div>
 </body>
