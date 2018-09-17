@@ -224,6 +224,7 @@ li {
   left: -20px;
   text-decoration: none;
   transition: 0.5s;
+  background: #f4f4f4;
 }
 #right a:hover {
   background: #e5e5e5;

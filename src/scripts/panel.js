@@ -87,9 +87,16 @@ $(function(){
     $('#verticalAlign').click(function(){
         SelectAlignCenter();
     })
+    $('#verticalMean').click(function(){
+        SelectAlignMean();
+    })
     $('#levelAlign').click(function(){
         //SelectAlignCenter();
         SelectAlignMiddle();
+    })
+    $('#levelMean').click(function(){
+        //SelectAlignCenter();
+        SelectMeanCenter();
     })
 
 })

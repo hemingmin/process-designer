@@ -18,3 +18,5 @@ ecinc_process.configLeft = function(){
         aLi.eq(i).attr('domJoin',modeldata[i].domJoin);
     })
 }
+
+

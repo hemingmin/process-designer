@@ -508,7 +508,7 @@ function SelectAlignCenter() {
     var arr = getSelectedRegions();
     var iLeft = 0;
     var id = "";
-
+    console.log(arr)
     for (var i = 0; i < arr.length; i++) {
         if (id === "") id = arr[i].parentNode.id;
         if (id !== arr[i].parentNode.id) continue;
@@ -524,6 +524,106 @@ function SelectAlignCenter() {
 
     jsPlumb.repaintEverything();
 }
+
+// 垂直平局分布
+function SelectAlignMean(){
+    var arr = getSelectedRegions();
+
+    if(arr.length<=2){
+        alert('请选择至少三个个模型节点')
+    }
+    else{
+        var minTop = arr[0].offsetTop;
+        var maxTop = arr[0].offsetTop;
+        var firstHeight = arr[0].offsetHeight;
+        var lastHeight = arr[0].offsetHeight;
+
+        var iH = 0;
+        var ic = 0;
+        for(var i=0;i<arr.length;i++){
+            //console.log(arr[i].offsetTop)
+            if(arr[i].offsetTop<minTop){
+                minTop = arr[i].offsetTop;
+                firstHeight = arr[i].offsetHeight;
+            }
+            if(arr[i].offsetTop>maxTop){
+                maxTop = arr[i].offsetTop;
+                lastHeight = arr[i].offsetHeight;
+            }
+    
+        }
+        
+        var mHeight = maxTop-(minTop+firstHeight)//中间高度
+        
+        for(var q=0;q<arr.length;q++){
+            if(arr[q].offsetTop != minTop && arr[q].offsetTop != maxTop){
+                iH += arr[q].offsetHeight;
+            }
+        }
+        for(var j=0;j<arr.length;j++){
+            if(arr[j].offsetTop != minTop && arr[j].offsetTop != maxTop){
+                
+                console.log(ic*arr[j].offsetHeight)
+                console.log((mHeight-iH)/(arr.length-1))
+                var a = (mHeight-iH)/(arr.length-1);
+                var s = a + firstHeight+minTop+(ic*arr[j].offsetHeight)+(ic*a);
+                $(arr[j]).css("top",s);
+                ic++;
+            }
+            
+        }
+        jsPlumb.repaintEverything();
+    }
+}
+
+// 水平平局分布
+function SelectMeanCenter(){
+    var arr = getSelectedRegions();
+
+    if(arr.length<=2){
+        alert('请选择至少三个模型节点')
+    }
+    else{
+        var minLeft = arr[0].offsetLeft;
+        var maxLeft = arr[0].offsetLeft;
+        var firstWidth = arr[0].offsetWidth;
+        var lastWidth = arr[0].offsetWidth;
+
+        var iH = 0;
+        var ic = 0;
+        for(var i=0;i<arr.length;i++){
+            //console.log(arr[i].offsetTop)
+            if(arr[i].offsetLeft<minLeft){
+                minLeft = arr[i].offsetTop;
+                firstWidth = arr[i].offsetWidth;
+            }
+            if(arr[i].offsetLeft>maxLeft){
+                maxLeft = arr[i].offsetLeft;
+                lastWidth = arr[i].offsetWidth;
+            }
+    
+        }
+        
+        var mWidth = maxLeft-(minLeft+firstWidth)//中间高度
+        for(var q=0;q<arr.length;q++){
+            if(arr[q].offsetLeft != minLeft && arr[q].offsetLeft != maxLeft){
+                iH += arr[q].offsetWidth;
+            }
+        }
+        for(var j=0;j<arr.length;j++){
+            if(arr[j].offsetLeft != minLeft && arr[j].offsetLeft != maxLeft){
+                
+                var a = (mWidth-iH)/(arr.length-1);
+                var s = a + firstWidth+minLeft+(ic*arr[j].offsetWidth)+(ic*a);
+                $(arr[j]).css("left",s);
+                ic++;
+            }
+            
+        }
+        jsPlumb.repaintEverything();
+    }
+}
+
 //右对齐
 function SelectAlignRight() {
     var arr = getSelectedRegions();
@@ -636,25 +736,8 @@ function GetStyle(obj, attr) {
     else {
         return getComputedStyle(obj, false)[attr];   //只适用于FF,Chrome,Safa
     }
-    return obj.style[attr]; //本人测试在IE和FF下没有用,chrome有用
+    return obj.style[attr]; //在IE和FF下没有用,chrome有用
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
