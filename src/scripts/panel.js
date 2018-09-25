@@ -1,5 +1,6 @@
 // 自定义右键菜单
 $(document).bind('contextmenu',function(){return false})
+
 jsPlumb.bind('contextmenu', function (conn, originalEvent) {
         
     //conn.connector = ["Straight", { stub: [0, 0], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }];
@@ -23,8 +24,23 @@ jsPlumb.bind('contextmenu', function (conn, originalEvent) {
 
 })
 
+jsPlumb.bind('click', function (conn, originalEvent) {
+  console.log(conn._jsPlumb.overlays)//-->一个数组包含箭头和路径文字      
+  if(conn.endpoints){
+        conn.setPaintStyle({
+        strokeStyle: "red"
+      })
+  }
+})
+
+
+
 // 处理自定义菜单兼容
 $(document).bind('click',function(){
+    
+    // jsPlumb.connect({
+    //     paintStyle: {strokeStyle: "yellow", fillStyle: "transparent", radius: 5, lineWidth: 1}
+    // })
     try{
         $('#centextMenu').remove();
     }catch(e){
@@ -43,12 +59,12 @@ $(function(){
         }
         else if($(this).val()==2){
             strlinetype = "Straight";
-            strlinecolor = "#59aa59";
+            strlinecolor = "#42546c";
             hollowCircle.connector = ["Straight", { stub: [0, 0], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }];
         }
         else if($(this).val()==3){
             strlinetype = "Bezier";
-            strlinecolor = "#1ab394";
+            strlinecolor = "#42546c";
             hollowCircle.connector = ["Bezier", { stub: [0, 0], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }];
         }
 

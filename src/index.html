@@ -143,42 +143,849 @@
                 </ul>
             </div>
             <div id="center">
-                <!-- 普通模型模板 -->
-                <!-- <div class="process">
-                    <div class="title">
-                        <img src="images/center/c_drbx.png" width="22" alt="">
-                        <span>多分支节点</span>
-                    </div>
-                    <p>部门领导审批</p>
-                </div> -->
-
-                <!-- 定制模型模板 -->
-                <!-- <div class="start"></div>
-                <div class="jslc"></div>
-                <div class="jsrw"></div>
-                <div class="zyjd"></div>
-                <div class="dfzjd"></div>
-                <div class="jhjd"></div>
-                <div class="jcjd"></div> -->
+                
             </div>
             <div id="right">
+                <div class="attr_title">
+                    <h3>流程属性设置窗口</h3>
+                    <a href="#">X</a>
+                </div>
                 <div class="attribute_list">
-                    <table width="100%">
-                        <tr>
-                            <td align="center">名称</td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td align="center">宽度</td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td align="center">高度</td>
-                            <td><input type="text"></td>
-                        </tr>
-                    </table>
+                    <div class="tab_list">
+                        <a href="#" class="active">基本设置</a>
+                        <a href="#">处理人设置</a>
+                        <a href="#">增加处理人设置</a>
+                        <a href="#">操作权限设置</a>
+                        <a href="#">意见设置</a>
+                    </div>
+                    <div id="PropertyNodeJBSZ" style="display: none;margin:5px;">
+                            <div align="center">
+                                <table class="list" width="430" style="border:1px solid #aeaeae;">
+                                    <tr valign="top">
+                                        <td class="tdBg" align="right" valign="middle" style="width: 130px;">
+                                            流程名称:
+                                        </td>
+                                        <td style="width: 300px;">
+                                            <div id='WFNameNode'>sdfdsfdsf</div>
+                                        </td>
+                                    </tr>
+                        
+                                    <tr valign="top">
+                                        <td valign="middle" align="right" class="tdBg" style="width: 130px;">
+                                            任务名称:
+                                        </td>
+                                        <td>
+                                            <input name="TNName" type="text" class="form-control" placeholder="请输入">
+                                        </td>
+                                    </tr>
+                        
+                                    <tr valign="top">
+                                        <td valign="middle" align="right" class="tdBg" style="width: 130px;">
+                                            任务编号:
+                                        </td>
+                                        <td>
+                                            <input name="TNSN" type="text" class="form-control" placeholder="请输入">
+                                        </td>
+                                    </tr>
+                        
+                                    <tr valign="top">
+                                        <td valign="middle" align="right" class="tdBg" style="width: 130px;">
+                                            任务类型:
+                                        </td>
+                                        <td>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="TNType" value="ToDo" checked> 办文
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="TNType" value="ToRead"> 阅文
+                                            </label>
+                                        </td>
+                                    </tr>
+                        
+                                    <tr valign="top">
+                                        <td valign="middle" align="right" id="TNToDoModeTd" class="tdBg" style="width: 130px;">
+                                            办文方式:
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="TNToDoMode">
+                                                <option selected>单人</option>
+                                                <option>多人并行</option>
+                                                <option>多人会签</option>
+                                                <option>多人串行</option>
+                                                <option>多人竞争</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                    </div>
+                    <div id="PropertyNodeCLRSZ" style="display: -none;margin:5px;">
+                            <div align="center">
+                            <table class="list" width="430" style="border:1px solid #aeaeae;">
+                                <tr>
+                                    <td class="tdBg" align="right" style="width: 130px;">
+                                        选择方式:
+                                    </td>
+                                    <td style="width: 300px;">
+                                        <select name="TNFilterType" class="form-control">
+                                                <option value="ByOrg" selected>
+                                                    按组织机构
+                                                </option>
+                                                <option value="ByWorkGroup">
+                                                    按工作群组
+                                                </option>
+                                                <option value="ByUserRole">
+                                                    按用户角色
+                                                </option>						
+                                                <option value="SpecifyUser">
+                                                    直接指定处理人
+                                                </option>
+                                                <option value="HistoryTNUser">
+                                                    历史节点处理人
+                                                </option>
+                                                <option value="WebField">
+                                                    指定Web表单域值
+                                                </option>
+                                                <option value="NotesFormula">
+                                                    按自定义类
+                                                </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNOrgLevelTd" align="right" class="tdBg" style="width: 130px;">
+                                        组织机构级别:
+                                    </td>
+                                    <td>
+                                        <select name="TNOrgLevel" class="form-control">
+                                                <option value="ByOrg" selected>
+                                                    按组织机构
+                                                </option>
+                                                <option value="ByWorkGroup">
+                                                    按工作群组
+                                                </option>
+                                                <option value="ByUserRole">
+                                                    按用户角色
+                                                </option>						
+                                                <option value="SpecifyUser">
+                                                    直接指定处理人
+                                                </option>
+                                                <option value="HistoryTNUser">
+                                                    历史节点处理人
+                                                </option>
+                                                <option value="WebField">
+                                                    指定Web表单域值
+                                                </option>
+                                                <option value="NotesFormula">
+                                                    按自定义类
+                                                </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNOrgFilterTypeTd" align="right" class="tdBg" style="width: 130px;">
+                                        机构筛选方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNOrgFilterType" class="form-control">
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_NO%>">
+                                                不筛选
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_SPECIFY_ORG%>">
+                                                指定机构
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_CURRENTSTAFF_ORG%>"
+                                                selected>
+                                                当前用户所在机构
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_CREATOR_ORG%>">
+                                                拟稿用户所在机构
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNSpecifyOrgTd" align="right" class="tdBg" style="width: 130px;">
+                                        指定机构名称:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNSpecifyOrgId" id="TNSpecifyOrgId"/>
+                                        <textarea name="TNSpecifyOrg" class="form-control" rows="2" cols="20"></textarea>
+                                        <input type="button" value="选择" style="margin-top: 5px;">
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNOrgParticipantTd" align="right" class="tdBg" style="width: 130px;">
+                                        机构参与人:
+                                    </td>
+                                    <td>
+                                        <select name="TNOrgParticipant" class="form-control">
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_MASTER%>" selected>
+                                                主负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_MASTER_ASSISTANT%>">
+                                                主、副负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_ASSISTANT%>">
+                                                副负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_FILE_MANAGER%>">
+                                                文件收发员
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_ALL%>">
+                                                全体人员
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_COMMON%>">
+                                                普通（非负责人）人员
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNWorkGroupTd" align="right" class="tdBg" style="width: 130px;">
+                                        工作群组名称:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNWorkGroupId" id="TNWorkGroupId"/>
+                                        <textarea name="TNWorkGroup" class="form-control" rows="2" cols="20"></textarea>
+                                        <input type="button" value="选择" style="margin-top: 5px;">
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNGroupUserFilterTypeTd" align="right" class="tdBg" style="width: 130px;">
+                                        群组内人员筛选方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNGroupUserFilterType" class="form-control">
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_NO%>" selected>
+                                                不筛选
+                                            </option>
+                                            <option
+                                                value="<%=WorkflowConstants.GROUP_FILTER_CURRENTSTAFF_DEPT%>">
+                                                当前用户所在部门
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_CREATOR_DEPT%>">
+                                                拟稿用户所在部门
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_CREATOR_ORG%>">
+                                                拟稿用户所在机构
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNGroupUserCateTypeTd" align="right" class="tdBg" style="width: 130px;">
+                                        群组内人员分组方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNGroupUserCateType" class="form-control">
+                                            <option value="<%=WorkflowConstants.GROUP_TYPE_NO%>" selected>
+                                                不分组
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_TYPE_DEPT%>">
+                                                按部门分组
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" id="TNSpecifyUserTd" class="tdBg" align="right" style="width: 130px;">
+                                        指定处理人:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNSpecifyUserId" id="TNSpecifyUserId">
+                                        <textarea name="TNSpecifyUser" class="form-control" rows="2" cols="20"></textarea>
+                                        <input type="button" value="选择" style="margin-top: 5px;">
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td valign="top" id="TNHistoryTaskNodeTd" align="right" class="tdBg" style="width: 130px;">
+                                        历史节点名称:
+                                    </td>
+                                    <td style="padding:0px">
+                                        <table class="tableGray"  width="100%">
+                                            <tr valign="top">
+                                                <td class="tdGray" style="width: 140px; text-align: left;">
+                                                    待选:
+                                                </td>
+                                                <td class="tdGray" style="width: 140px; text-align: left;">
+                                                    入选:
+                                                </td>
+                                            </tr>
+                    
+                                            <tr valign="top">
+                                                <td>
+                                                    <input name="%%Surrogate_TNNodes_1"
+                                                            type="hidden" value="1"/> <select name="TNNodes_1"
+                                                            multiple
+                                                            style="WIDTH: 100%; height: 280px;"></select> 
+                                                </td>
+                                                <td>
+                                                    <textarea name="TNHistoryTaskNode" style="height: 278px;" class="form-control" rows="2" cols="20"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td valign="top" id="TNWebFieldTd" align="right" class="tdBg" style="width: 130px;">
+                                        Web表单域名称:
+                                    </td>
+                                    <td>
+                                        <textarea name="TNWebField" class="form-control" rows="3" cols="20"></textarea>
+                                    </td>
+                                </tr>
+                                <tr><td colspan="2" id="TNWebFieldDescTd" style="word-break:break-all;">
+                                        Web表单域值格式：<br/>
+                                        用户中文名/用户登录帐号@用户员工ID，多个人员使用英文“;”符号分隔；<br/>例：李明/liming@4028cb8138f148cc0138f14a0b96001e
+                                </td></tr>
+                                <tr>
+                                    <td valign="top" id="TNNotesFormulaTd" align="right" class="tdBg" style="width: 130px;">
+                                        自定义类:
+                                    </td>
+                                    <td>
+                                        <textarea name="TNNotesFormula"style="WIDTH: 283px;height: 280px;" class="form-control" rows="3" cols="20"></textarea>
+                                            自定义类必须实现“StaffSelector”接口 
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td id="TNOneOrgOneUserTd" align="right" class="tdBg" style="width: 130px;">
+                                        机构内限选一人:
+                                    </td>
+                                    <td>
+                                        <input type="radio" style="width:23px;border:0px;" name="TNOneOrgOneUser"
+                                            value="<%=WorkflowConstants.ONLY_PERSON_LIMIT_YES%>">
+                                        是
+                                        <input type="radio" style="width:23px;border:0px;" name="TNOneOrgOneUser"
+                                            value="<%=WorkflowConstants.ONLY_PERSON_LIMIT_NO%>" checked>
+                                        否
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="PropertyNodeTJCLRSZ" style="display:none;width:430px;margin:5px;">
+                        <div align="center">
+                            <table class="list" width="430" style="border:1px solid #aeaeae;">
+                                <tr valign="top">
+                                    <td id="TNAddUserTypeTd" align="right" class="tdBg" style="width: 130px;">
+                                        增加处理人方式:
+                                    </td>
+                                    <td style="width: 300px;">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNAddUserType" value="ToDo" checked> 按处理人设置方式
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNAddUserType" value="ToRead"> 按以下设置方式
+                                        </label>
+                                    </td>
+                                </tr>
+                                
+                                <tr valign="top">
+                                    <td id="TNFilterType_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        选择方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNFilterType_1" class="form-control">
+                                            <option value="ByOrg" selected>
+                                                按组织机构
+                                            </option>
+                                            <option value="ByWorkGroup">
+                                                按工作群组
+                                            </option>
+                                            <option value="SpecifyUser">
+                                                直接指定处理人
+                                            </option>
+                                            <option value="HistoryTNUser">
+                                                历史节点处理人
+                                            </option>
+                                            <option value="WebField">
+                                                指定Web表单域值
+                                            </option>
+                                            <option value="NotesFormula">
+                                                按自定义类
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNOrgLevel_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        组织机构级别:
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="TNOrgLevel_1">
+                                            <option value="ByOrg" selected>
+                                                按组织机构
+                                            </option>
+                                            <option value="ByWorkGroup">
+                                                按工作群组
+                                            </option>
+                                            <option value="SpecifyUser">
+                                                直接指定处理人
+                                            </option>
+                                            <option value="HistoryTNUser">
+                                                历史节点处理人
+                                            </option>
+                                            <option value="WebField">
+                                                指定Web表单域值
+                                            </option>
+                                            <option value="NotesFormula">
+                                                按自定义类
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNOrgFilterType_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        机构筛选方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNOrgFilterType_1" class="form-control">
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_NO%>">
+                                                不筛选
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_SPECIFY_ORG%>">
+                                                指定机构
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_CURRENTSTAFF_ORG%>"
+                                                selected>
+                                                当前用户所在机构
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_FILTER_CREATOR_ORG%>">
+                                                拟稿用户所在机构
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNSpecifyOrg_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        指定机构名称:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNSpecifyOrg_1Id" id="TNSpecifyOrg_1Id"/>
+                                        <textarea name="TNSpecifyOrg_1" class="form-control" rows="2"></textarea>
+                                        <input type="button" value="选择" style="margin-top: 5px;">
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNOrgParticipant_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        机构参与人:
+                                    </td>
+                                    <td>
+                                        <select name="TNOrgParticipant_1" class="form-control">
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_MASTER%>" selected>
+                                                主负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_MASTER_ASSISTANT%>">
+                                                主、副负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_ASSISTANT%>">
+                                                副负责人
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_FILE_MANAGER%>">
+                                                文件收发员
+                                            </option>						
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_ALL%>">
+                                                全体人员
+                                            </option>
+                                            <option value="<%=WorkflowConstants.ORG_STAFF_COMMON%>">
+                                                普通（非负责人）人员
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNWorkGroup_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        工作群组名称:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNWorkGroup_1Id" id="TNWorkGroup_1Id"/>
+                                        <textarea name="TNWorkGroup_1" class="form-control" rows="2"></textarea>
+                                        <input type="button" style="margin-top: 5px;" value="选择">
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNGroupUserFilterType_1Td" class="tdBg"
+                                        style="width: 130px;">
+                                        群组内人员筛选方式:
+                                    </td>
+                                    <td>
+                                        <select name="TNGroupUserFilterType_1" class="form-control">
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_NO%>" selected>
+                                                不筛选
+                                            </option>
+                                            <option
+                                                value="<%=WorkflowConstants.GROUP_FILTER_CURRENTSTAFF_DEPT%>">
+                                                当前用户所在部门
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_CREATOR_DEPT%>">
+                                                拟稿用户所在部门
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_FILTER_CREATOR_ORG%>">
+                                                拟稿用户所在机构
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNGroupUserCateType_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        群组内人员分组方式:
+                                    </td>
+                                    <td>
+                                        <input name="%%Surrogate_TNGroupUserCateType_1" type="hidden"
+                                            value="1">
+                                        <select name="TNGroupUserCateType_1" class="form-control">
+                                            <option value="<%=WorkflowConstants.GROUP_TYPE_NO%>" selected>
+                                                不分组
+                                            </option>
+                                            <option value="<%=WorkflowConstants.GROUP_TYPE_DEPT%>">
+                                                按部门分组
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNSpecifyUser_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        指定处理人:
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="TNSpecifyUser_1Id" id="TNSpecifyUser_1Id">
+                                        <textarea name="TNSpecifyUser_1" class="form-control" rows="2"></textarea>
+                                        <input type="button" value="选择" style="margin-top: 5px;">
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNHistoryTaskNode_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        历史节点名称:
+                                    </td>
+                                    <td style="padding:0px">
+                                        <table class="tableGray" width="100%">
+                                            <tr valign="top">
+                                                <td class="tdGray" style="width: 125px; text-align: left;">
+                                                    待选:
+                                                </td>
+                                                <td class="tdGray" style="width: 125px; text-align: left;">
+                                                    入选:
+                                                </td>
+                                            </tr>
+                    
+                                            <tr valign="top">
+                                                <td>
+                                                    <select name="TNNodes_2" multiple style="WIDTH: 100%; height: 280px;"></select>
+                                                </td>
+                                                <td>
+                                                    <textarea name="TNHistoryTaskNode_1" style=" height: 278px;" class="form-control" rows="2"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNWebField_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        Web表单域名称:
+                                    </td>
+                                    <td>                                         
+                                        <textarea name="TNWebField_1" style=" height: 200px;" class="form-control" rows="2"></textarea>
+                                    </td>
+                                </tr>			
+                                <tr valign="top">
+                                    <td id="TNNotesFormula_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        自定义类:
+                                    </td>
+                                    <td>
+                                        <textarea name="TNNotesFormula_1" style=" height: 200px;" class="form-control" rows="2"></textarea>
+                                            自定义类必须实现“StaffSelector”接口 
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td id="TNOneOrgOneUser_1Td" align="right" class="tdBg" style="width: 130px;">
+                                        机构内限选一人:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNOneOrgOneUser_1" value="option1"> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNOneOrgOneUser_1" value="option2"> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                    
+                                <tr valign="top">
+                                    <td class="tdBg" align="right" style="width: 130px;">
+                                        是否自动抄送阅知:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNAutoSendToRead" value="option1"> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNAutoSendToRead" value="option2"> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr><td colspan="2" id="TNWebFieldDesc_1Td">
+                                        Web表单域值格式：<br/>
+                                        用户中文名/用户登录帐号@用户员工ID，多个人员使用英文“;”符号分隔；<br/>例：李明/liming@4028cb8138f148cc0138f14a0b96001e
+                                </td></tr>			
+                            </table>
+                        </div>
+                    </div>
+                    <div id="PropertyNodeCZQXSZ" style="display:none;width:430px;margin:5px;">
+                            <div align="center">
+                            <table class="list" width="430" style="border:1px solid #aeaeae;">
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        能否编辑:
+                                    </td>
+                                    <td style="width: 285px;">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNCanEdit" id="inlineRadio1" value="" checked> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNCanEdit" id="inlineRadio2" value=""> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        处理时限类型:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtType" value="" checked> 不限制
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtType" value=""> 按工作日
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtType" value=""> 按自然日
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        处理时限天数:
+                                    </td>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                    <input name="TNTimeLimit" class="form-control" value="" style="width:200px">
+                                                <label for="exampleInputName2">天</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        提前催办天数:
+                                    </td>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                    <input name="TNTimeLimitBeforeNotice" class="form-control" value="" style="width:200px">
+                                                <label for="exampleInputName2">天</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        时限作用范围:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtScope" value="" checked> 所有处理人
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtScope" value=""> 单个处理人
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        时限可否修改:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtCanEdit" value="" checked> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNTmLmtCanEdit" value=""> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td align="right" class="tdBg" style="width:130px">操作按钮:</td>
+                                    <td>
+                                        <table cellpadding=0 border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 125px; text-align: left;">
+                                                    待选:
+                                                </td>
+                                                <td style="width: 40px;"></td>
+                                                <td style="width: 125px; text-align: left;"
+                                                    valign="middle">
+                                                    入选:
+                                                </td>
+                                            </tr>
+                    
+                                            <tr valign="top">
+                                                <td>
+                                                    <select name="TNCommandBtn_1" style="height:100px; width: 110px;" size="5">
+                                                        <option>注销文件</option>
+                                                        <option>编辑正文</option>
+                                                        <option>查看正文</option>
+                                                        <option>打印</option>
+                                                    </select>
+                                                </td>
+                                                <td valign="middle" align="center">
+                                                    <input type="button" value=">>"><br/><br/>
+                                                    <input type="button" value="<<" />
+                                                </td>
+                                                <td>
+                                                    <textarea name="TNCommandBtn" style="width: 110px; height: 100px;"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr> 
+                    
+                                <tr valign="top">
+                                    <td align="right" class="tdBg" style="width:130px">
+                                        需等待节点:
+                                    </td>
+                                    <td>
+                                        <table cellpadding=0 border="0" width="100%">
+                                                <tr>
+                                                    <td style="width: 125px; text-align: left;">
+                                                        待选:
+                                                    </td>
+                                                    <td style="width: 40px;"></td>
+                                                    <td style="width: 125px; text-align: left;"
+                                                        valign="middle">
+                                                        入选:
+                                                    </td>
+                                                </tr>
+                        
+                                                <tr valign="top">
+                                                    <td>
+                                                        <select name="TNNodes" style="height:100px; width: 110px;" size="5">
+                                                            <option>注销文件</option>
+                                                            <option>编辑正文</option>
+                                                            <option>查看正文</option>
+                                                            <option>打印</option>
+                                                        </select>
+                                                    </td>
+                                                    <td valign="middle" align="center">
+                                                        <input type="button" value=">>"><br/><br/>
+                                                        <input type="button" value="<<" />
+                                                    </td>
+                                                    <td>
+                                                        <textarea name="TNWaitNode" style="width: 110px; height: 100px;"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                    
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="PropertyNodeYJSZ" style="display:none;width:430px;margin:5px;">
+                        <div align="center">
+                            <table class="list" width="430" style="border:1px solid #aeaeae;">
+                                <tr>
+                                    <td align="right" class="tdBg" style="width: 130px">
+                                        意见栏标签:
+                                    </td>
+                                    <td style="width: 300px;">
+                                        <select name="TNIdeaLabel" class="form-control" style="WIDTH: 100%;"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width: 130px">
+                                        意见签名格式:
+                                    </td>
+                                    <td>
+                                        <select name="TNIdeaSign" class="form-control" style="width: 100%">
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_STAFF%>" selected>意见+姓名+签名时间</option>
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_DEPT%>">意见+部门名+签名时间</option>
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_STAFF_DEPT%>">意见+姓名(部门名)+签名时间</option>
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_DEPT_STAFF%>">意见+(部门名)姓名+签名时间</option>
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_STAFF_ORG%>">意见+姓名(单位名)+签名时间</option>
+                                            <option value="<%=WorkflowConstants.IDEA_SIGN_TYPE_ORG_STAFF%>">意见+(单位名)姓名+签名时间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width: 130px">
+                                        是否需要突出显示:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaIsEmphasize" value=""> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaIsEmphasize" value="" checked> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td align="right" class="tdBg" style="width: 130px">
+                                        是否必填:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaIsMust" value="" checked> 是
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaIsMust" value=""> 否
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" class="tdBg" style="width: 130px">
+                                        重复办理时保存方式:
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaSaveType" value="" checked> 追加
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="TNIdeaSaveType" value=""> 替换
+                                        </label>
+                                    </td>
+                                </tr>
+                    
+                            </table>
+                        </div>
+                    </div>
                 </div> 
-                <a href="#">&gt;</a>
             </div>
         </div>
     </div>

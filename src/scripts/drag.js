@@ -21,7 +21,6 @@ $(function(){
             model.CreateModel(ui,$(this),resize,domJoin,modelType)
         }
     })
-
     
 })
 
@@ -190,3 +189,4 @@ model.customModel = function(id,modelType){
     
     return createDom;
 }
+

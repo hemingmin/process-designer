@@ -62,7 +62,7 @@ ul,li { list-style: none;}
 
 // 中间模型
 #center {
-    height:100%;  margin-left: 180px; top: 0; border-right: 1px solid #ccc; margin-right: 320px;
+    height:100%;  margin-left: 180px; top: 0; border-right: 1px solid #ccc;
     position: relative; overflow: hidden; overflow-y: auto;
     .model_process{ 
         position: absolute; border: 1px solid #e5e5e5; border-top: none; 
@@ -124,25 +124,44 @@ ul,li { list-style: none;}
 
 // 右侧面板
 #right{
-    height:100%; position: absolute; right: 0px; top: 0; width: 320px; background: #fff;
-    padding: 10px; box-sizing: border-box;
+    height:100%; position: fixed; right: 800px; top: 140px; width: 460px; height: 600px; background: #fff;
+    box-sizing: border-box; overflow-y: auto;
+    .attr_title{
+        height: 44px; line-height: 44px; background: #e7e7e7; position: relative;
+        h3 {
+            font-size: 14px; margin: 0; height: 44px; line-height: 44px; text-indent: 10px;
+        }
+        a{
+            position: absolute; right: 10px; top: 0px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
     .attribute_list{
+        .tab_list{
+            height: 32px; line-height: 32px; margin: 5px; padding: 0 5px; border-bottom: 1px solid #ddd;
+            a{
+                display: block; float: left; font-size: 12px; padding: 0 8px; height: 32px; line-height: 32px; 
+            }
+            .active {
+                border: 1px solid #ddd; background: #fff;
+                border-bottom-color: transparent; position: relative;
+            }
+            a:hover { text-decoration: none;}
+        }
         table{
             tr{
                 td{
-                    border: 1px solid #ccc; padding: 5px;
-                    input {
-                        text-indent: 4px; border: 1px solid #e1e1e1; width: 240px; height: 30px;
+                    border: 1px solid #dddddd; padding: 5px; height: 40px; color: #555;
+                    font-size: 12px; line-height: 30px;
+                    .radio-inline{
+                        input { margin-top: 8px;}
                     }
                 }
             }
         }
     }
-    a{
-        position: absolute; top: 45%; width: 20px; height: 40px; line-height: 40px; text-align: center; 
-        border: 1px solid #ccc; left: -20px; text-decoration: none; transition: 0.5s; background: #f4f4f4;
-    }
-    a:hover { background: #e5e5e5;}
 }
 
 
